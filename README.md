@@ -35,7 +35,10 @@ Design and develop a full-stack web application using **React, Firebase, and Nod
 - **GitHub repository for version control**.
 
 ## 📷 Screenshots
-(Add your screenshots here)
+![Home Page Screenshot](./1.png)
+![Login / SignUp Screenshot](./2.png)
+![Dashboard Screenshot](./3.png)
+
 
 ## 🔧 Installation & Setup
 ### 1️⃣ Clone the repository:
