@@ -14,7 +14,7 @@ function HomePage() {
 
   const getPosts = async () => {
     try {
-      const response = await axios.get("https://battle-rush-backend.vercel.app/getAllPosts");
+      const response = await axios.get("https://capital-rush-backend.vercel.app/getAllPosts");
       setPosts(response.data);
     } catch (error) {}
   };

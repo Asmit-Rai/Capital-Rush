@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   const getPosts = async () => {
     const response = await axios.get(
-      `https://battle-rush-backend.vercel.app/getPost/${userId}`
+      `https://capital-rush-backend.vercel.app/getPost/${userId}`
     );
     setPosts(response.data);
   };
@@ -29,7 +29,7 @@ export default function Dashboard() {
       return;
     }
     const loadingToast = toast.loading("Adding post...");
-    await axios.post("https://battle-rush-backend.vercel.app/createPost", {
+    await axios.post("https://capital-rush-backend.vercel.app/createPost", {
       title,
       description,
       userId,
@@ -46,7 +46,7 @@ export default function Dashboard() {
   const deletePost = async (id) => {
     const loadingToast = toast.loading("Deleting post...");
     await axios.delete(
-      `https://battle-rush-backend.vercel.app/deletePost/${id}/${userId}`
+      `https://capital-rush-backend.vercel.app/deletePost/${id}/${userId}`
     );
     toast.update(loadingToast, {
       render: "Post Deleted",
@@ -68,7 +68,7 @@ export default function Dashboard() {
       return;
     }
     await axios.put(
-      `https://battle-rush-backend.vercel.app/editPost/${id}/${userId}`,
+      `https://capital-rush-backend.vercel.app/editPost/${id}/${userId}`,
       { title: newTitle, description: newDescription }
     );
     getPosts();
