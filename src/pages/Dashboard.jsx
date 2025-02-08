@@ -14,8 +14,10 @@ export default function Dashboard() {
   }, [userId]);
 
   const getPosts = async () => {
-      const response = await axios.get(`http://localhost:5000/getPost/${userId}`);
-      setPosts(response.data);
+    const response = await axios.get(
+      `https://battle-rush-backend.vercel.app/getPost/${userId}`
+    );
+    setPosts(response.data);
   };
 
   const createPost = async () => {
@@ -27,42 +29,49 @@ export default function Dashboard() {
       return;
     }
     const loadingToast = toast.loading("Adding post...");
-      await axios.post("http://localhost:5000/createPost", { title, description, userId });
-      toast.update(loadingToast, {
-        render: "Post Added",
-        type: "success",
-        isLoading: false,
-        autoClose: 2000,
-      });
-      getPosts();
+    await axios.post("https://battle-rush-backend.vercel.app/createPost", {
+      title,
+      description,
+      userId,
+    });
+    toast.update(loadingToast, {
+      render: "Post Added",
+      type: "success",
+      isLoading: false,
+      autoClose: 2000,
+    });
+    getPosts();
   };
 
   const deletePost = async (id) => {
     const loadingToast = toast.loading("Deleting post...");
-      await axios.delete(`http://localhost:5000/deletePost/${id}/${userId}`);
-      toast.update(loadingToast, {
-        render: "Post Deleted",
-        type: "success",
-        isLoading: false,
-        autoClose: 2000,
-      });
-      getPosts();
-    };
-  
+    await axios.delete(
+      `https://battle-rush-backend.vercel.app/deletePost/${id}/${userId}`
+    );
+    toast.update(loadingToast, {
+      render: "Post Deleted",
+      type: "success",
+      isLoading: false,
+      autoClose: 2000,
+    });
+    getPosts();
+  };
 
   const editPost = async (id) => {
     const newTitle = prompt("Enter new title:");
     const newDescription = prompt("Enter new description:");
 
-    
-        await axios.put(`http://localhost:5000/editPost/${id}/${userId}`, { title: newTitle, description: newDescription });
-        getPosts();
+    await axios.put(
+      `https://battle-rush-backend.vercel.app/editPost/${id}/${userId}`,
+      { title: newTitle, description: newDescription }
+    );
+    getPosts();
   };
 
   return (
-    <div className="w-full min-h-screen bg-black flex justify-center p-6">
-    <div className="w-full max-w-screen items-center grid grid-cols-[40%_60%] gap-8">
-      <div className="bg-white rounded-3xl p-8 h-[80vh]">
+    <div className="w-full h-screen bg-black flex justify-center p-8 overflow-hidden">
+      <div className="w-full max-w-screen-xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+         <div className="bg-white rounded-3xl p-4 sm:p-6 lg:p-8 flex flex-col justify-between h-full">
         <h1 className="text-2xl font-bold mb-4">Create Post</h1>
         <input
           type="text"
@@ -73,39 +82,44 @@ export default function Dashboard() {
         />
         <textarea
           placeholder="Description"
-          className="w-full h-[40vh] p-2 mb-3 border border-black rounded-[18px] focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full h-[30vh] sm:h-[40vh] p-2 mb-3 border border-black rounded-[18px] focus:outline-none focus:ring-2 focus:ring-black resize-none"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <button
+          className="w-ful"
           onClick={createPost}
-          className="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition"
         >
           Create Post
         </button>
       </div>
-      <div className="bg-black rounded-3xl p-8 h-[80vh] overflow-y-auto">
-        {posts.map((post) => (
-          <div key={post.id} className="bg-white p-8 mb-6 rounded-[18px] flex justify-between">
-            
-            <div className="flex flex-col gap-5">
-              <button onClick={() => deletePost(post.id)} >
-                Delete
-              </button>
-              <button onClick={() => editPost(post.id)}>
-                Edit
-              </button>
+        <div className="bg-black rounded-3xl p-4 sm:p-6 lg:p-8 overflow-y-auto max-h-[80vh] md:max-h-screen">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="bg-white p-4 sm:p-6 mb-4 sm:mb-6 rounded-[18px] flex flex-col sm:flex-row justify-between"
+            >
+              <div className="flex flex-col gap-2 sm:gap-5 mb-4 sm:mb-0">
+                <button
+                  onClick={() => deletePost(post.id)}
+                >
+               
+                  Delete
+                </button>
+                <button
+                  onClick={() => editPost(post.id)}
+                >
+                  Edit
+                </button>
+              </div>
+              <div className="flex flex-col w-full sm:w-[80%]">
+                <h1 className="text-xl font-semibold mb-2">{post.title}</h1>
+                <p className="text-black">{post.description}</p>
+              </div>
             </div>
-            <div className="flex flex-col w-[80%]">
-              <h1 className="text-xl font-semibold mb-2">{post.title}</h1>
-              <p className="text-black">{post.description}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-  
     </div>
-  </div>
-  
   );
 }
