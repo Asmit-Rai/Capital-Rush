@@ -60,7 +60,13 @@ export default function Dashboard() {
   const editPost = async (id) => {
     const newTitle = prompt("Enter new title:");
     const newDescription = prompt("Enter new description:");
-
+    if (!newTitle || !newDescription) {
+      toast.error("Title and Description are required!", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+      return;
+    }
     await axios.put(
       `https://battle-rush-backend.vercel.app/editPost/${id}/${userId}`,
       { title: newTitle, description: newDescription }
