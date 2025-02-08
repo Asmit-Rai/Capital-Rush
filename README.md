@@ -81,7 +81,7 @@ vercel
 ```
 
 ## 🌐 Live Demo
-[Live Project Link](https://capital-rush.vercel.app/)
+[Live Project Link](capital-rush01.vercel.app)
 
 ## 📂 Folder Structure
 ```
