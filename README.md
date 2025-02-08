@@ -43,8 +43,8 @@ Design and develop a full-stack web application using **React, Firebase, and Nod
 ## 🔧 Installation & Setup
 ### 1️⃣ Clone the repository:
 ```sh
-git clone https://github.com/yourusername/project-name.git
-cd project-name
+git clone https://github.com/Asmit-Rai/Battle-Rush.git
+cd Battle-Rush
 ```
 
 ### 2️⃣ Install dependencies:
