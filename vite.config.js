@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss(),],
   build: {
     outDir: "dist",
+    rollupOptions: {
+      external: ["axios"], // Mark axios as external if Vercel fails to resolve it
+    },
   },
 })
