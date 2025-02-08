@@ -1,14 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(),],
+  plugins: [react()],
   build: {
     outDir: "dist",
     rollupOptions: {
-      external: ["axios"], // Mark axios as external if Vercel fails to resolve it
+      external: [], // Remove "axios" from external
     },
   },
-})
+  resolve: {
+    alias: {
+      axios: "axios",
+    },
+  },
+});
