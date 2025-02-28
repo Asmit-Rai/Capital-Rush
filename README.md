@@ -1,4 +1,4 @@
-# Web Developer Technical Assignment - Capital Rush
+# Web-Blogging
 
 ## 🚀 Objective
 Design and develop a full-stack web application using **React, Firebase, and Node.js** that allows users to sign up, log in, and create, edit, and delete posts. The application is **responsive, secure, and optimized for performance**.
