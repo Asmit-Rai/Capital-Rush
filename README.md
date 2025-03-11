@@ -1,4 +1,4 @@
-# Web Developer Technical Assignment - Capital Rush
+# Web-Blogging
 
 ## 🚀 Objective
 Design and develop a full-stack web application using **React, Firebase, and Node.js** that allows users to sign up, log in, and create, edit, and delete posts. The application is **responsive, secure, and optimized for performance**.
@@ -43,18 +43,18 @@ Design and develop a full-stack web application using **React, Firebase, and Nod
 ## 🔧 Installation & Setup
 ### 1️⃣ Clone the repository:
 ```sh
-git clone https://github.com/Asmit-Rai/Battle-Rush.git
-cd Battle-Rush
+git clone https://github.com/Asmit-Rai/Capital-Rush.git
+cd Capital-Rush
 ```
 
 ### 2️⃣ Install dependencies:
 ```sh
 # For frontend
-cd battle-rush
+cd capital-rush
 npm install
 
 # For backend
-cd battle-rush-backend
+cd capital-rush-backend
 npm install
 ```
 
@@ -81,13 +81,13 @@ vercel
 ```
 
 ## 🌐 Live Demo
-[Live Project Link](https://battle-rush.vercel.app/)
+[Live Project Link](https://capital-rush01.vercel.app/)
 
 ## 📂 Folder Structure
 ```
 Battle Rush/
-│── battle-rush/        # React frontend
-│── battle-rush-backend/         # Node.js backend
+│── capital-rush/        # React frontend
+│── capital-rush-backend/         # Node.js backend
 │── README.md        # Project documentation
 │── .gitignore       # Git ignore file
 ```
